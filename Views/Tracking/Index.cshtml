@@ -1,0 +1,48 @@
+﻿@model TrackingViewModel
+@{
+    ViewData["Title"] = "Application Tracking";
+}
+
+<section class="sb-tracking-card">
+    <h2>Application Tracking</h2>
+    <p class="sb-tracking-intro">Please specify your Tracking ID to view the current status of your application.</p>
+    <p class="sb-tracking-intro-ur">براہ مہربانی اپنی ٹریکنگ آئی ڈی درج کریں تاکہ آپ اپنی درخواست کی موجودہ صورتحال دیکھ سکیں۔</p>
+
+    <form asp-controller="Tracking" asp-action="Index" method="post" class="sb-tracking-form">
+        @Html.AntiForgeryToken()
+        <label for="trackingId">Tracking ID</label>
+        <div class="sb-tracking-input-row">
+            <input type="text" id="trackingId" name="trackingId" value="@Model.TrackingId" placeholder="e.g. SB-1001" autocomplete="off" />
+            <button type="submit">View Status</button>
+        </div>
+        <p class="sb-tracking-hint">Demo data (frontend phase) — try SB-1001, SB-1002 or SB-1003.</p>
+    </form>
+
+    @if (Model.HasSearched)
+    {
+        <div class="sb-result">
+            @if (Model.IsFound)
+            {
+                var statusClass = Model.Status switch
+                {
+                    ApplicationStatus.Approved => "sb-status-approved",
+                    ApplicationStatus.Rejected => "sb-status-rejected",
+                    _ => "sb-status-inprocess"
+                };
+                var statusLabel = Model.Status switch
+                {
+                    ApplicationStatus.Approved => "Approved",
+                    ApplicationStatus.Rejected => "Rejected",
+                    _ => "In Process"
+                };
+
+                <div class="sb-result-row"><span class="sb-result-label">Tracking ID</span><span class="sb-result-value">@Model.TrackingId</span></div>
+                <div class="sb-result-row"><span class="sb-result-label">Current Status</span><span class="sb-status-badge @statusClass">@statusLabel</span></div>
+            }
+            else
+            {
+                <p class="sb-result-empty">No application was found for tracking ID "@Model.TrackingId". Please check and try again.</p>
+            }
+        </div>
+    }
+</section>

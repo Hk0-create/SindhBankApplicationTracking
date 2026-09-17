@@ -1,0 +1,262 @@
+:root {
+    --sb-green: #2f7a4d;
+    --sb-green-dark: #1f4d36;
+    --sb-gold: #b08d4f;
+    --sb-text: #23302a;
+    --sb-text-muted: #5c6b63;
+    --sb-border: #dbe6df;
+    --sb-white: #ffffff;
+    --sb-status-approved: #2f7a4d;
+    --sb-status-rejected: #b3261e;
+    --sb-status-inprocess: #b08d4f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f8f6;
+    color: var(--sb-text);
+}
+
+
+.sb-header {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--sb-white);
+    border-bottom: 4px solid var(--sb-green);
+    padding: clamp(0.5rem, 1.6vh, 1rem) clamp(1rem, 4vw, 2.5rem);
+    box-shadow: 0 2px 6px rgba(31, 77, 54, 0.06);
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.sb-header-text {
+    text-align: right;
+}
+
+    .sb-header-text h1 {
+        margin: 0;
+        color: var(--sb-green-dark);
+        font-size: clamp(1rem, 2.2vw, 1.5rem);
+        font-weight: 800;
+        letter-spacing: 0.01em;
+    }
+
+.sb-header-subtitle {
+    margin: 0.1rem 0 0;
+    color: var(--sb-text-muted);
+    font-size: clamp(0.72rem, 1.4vw, 0.95rem);
+}
+
+/* ---------- Increased logo size & visibility ---------- */
+/* ---------- Fill Entire Logo Container ---------- */
+.sb-logo {
+    /* Ensure the element takes full proportional height */
+    height: clamp(70px, 11vh, 105px);
+    width: auto;
+    max-width: 320px;
+    /* Center and fill */
+    object-fit: contain;
+    display: block;
+    /* Scales up the actual graphic inside to remove internal whitespace */
+    transform: scale(1.35);
+    transform-origin: left center;
+}
+.sb-logo-container {
+    display: flex;
+    align-items: center;
+    overflow: visible; /* Allows the scaled logo to display sharply */
+    padding: 0.25rem 0;
+}
+
+.sb-main {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(0.75rem, 2vh, 2rem) clamp(1rem, 3vw, 2rem);
+    width: 100%;
+    background: linear-gradient(135deg, #eaf3ee 0%, #f5f8f6 55%, #eef4f0 100%);
+}
+
+.sb-tracking-card {
+    background: var(--sb-white);
+    border: 1px solid var(--sb-border);
+    border-top: 5px solid var(--sb-green);
+    border-radius: 8px;
+    padding: clamp(1.5rem, 4vh, 3rem) clamp(1.5rem, 5vw, 3.5rem);
+    box-shadow: 0 8px 28px rgba(31, 77, 54, 0.1);
+    width: min(95%, 1100px);
+}
+
+    .sb-tracking-card h2 {
+        margin: 0 0 0.5rem;
+        font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+        color: var(--sb-text);
+    }
+
+.sb-tracking-intro {
+    margin: 0 0 0.15rem;
+    font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+    line-height: 1.5;
+    color: var(--sb-text-muted);
+}
+
+.sb-tracking-intro-ur {
+    margin: 0 0 clamp(0.85rem, 2vh, 1.5rem);
+    font-size: clamp(0.88rem, 1.7vw, 1.08rem);
+    line-height: 1.65;
+    color: var(--sb-text-muted);
+    direction: rtl;
+    text-align: right;
+}
+
+.sb-tracking-form label {
+    display: block;
+    font-size: clamp(0.72rem, 1.3vw, 0.88rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--sb-text-muted);
+    margin-bottom: 0.4rem;
+}
+
+.sb-tracking-input-row {
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+}
+
+    .sb-tracking-input-row input {
+        flex: 1 1 240px;
+        padding: clamp(0.55rem, 1.4vh, 0.9rem) clamp(0.75rem, 2vw, 1.1rem);
+        border: 1px solid var(--sb-border);
+        border-radius: 4px;
+        font-size: clamp(0.9rem, 1.6vw, 1.08rem);
+    }
+
+        .sb-tracking-input-row input:focus {
+            outline: 2px solid var(--sb-green);
+            outline-offset: 1px;
+        }
+
+    .sb-tracking-input-row button {
+        background: var(--sb-green);
+        color: var(--sb-white);
+        border: none;
+        border-radius: 4px;
+        padding: clamp(0.55rem, 1.4vh, 0.9rem) clamp(1.3rem, 3vw, 2.1rem);
+        font-weight: 700;
+        font-size: clamp(0.78rem, 1.3vw, 0.95rem);
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+        .sb-tracking-input-row button:hover {
+            background: var(--sb-green-dark);
+        }
+
+.sb-tracking-hint {
+    margin: 0.5rem 0 0;
+    font-size: clamp(0.68rem, 1.1vw, 0.85rem);
+    color: var(--sb-text-muted);
+    font-style: italic;
+}
+
+/* ---------- Result panel ---------- */
+.sb-result {
+    margin-top: clamp(0.75rem, 2vh, 1.5rem);
+    padding-top: clamp(0.6rem, 1.6vh, 1.25rem);
+    border-top: 1px dashed var(--sb-border);
+}
+
+.sb-result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: clamp(0.35rem, 1vh, 0.65rem) 0;
+    border-bottom: 1px solid var(--sb-border);
+    font-size: clamp(0.8rem, 1.5vw, 1.05rem);
+}
+
+    .sb-result-row:last-child {
+        border-bottom: none;
+    }
+
+.sb-result-label {
+    color: var(--sb-text-muted);
+    font-weight: 600;
+}
+
+.sb-result-value {
+    font-weight: 600;
+}
+
+.sb-status-badge {
+    display: inline-block;
+    padding: clamp(0.25rem, 0.6vh, 0.4rem) clamp(0.7rem, 1.6vw, 1.1rem);
+    border-radius: 999px;
+    font-size: clamp(0.68rem, 1.2vw, 0.88rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--sb-white);
+}
+
+.sb-status-approved {
+    background: var(--sb-status-approved);
+}
+
+.sb-status-rejected {
+    background: var(--sb-status-rejected);
+}
+
+.sb-status-inprocess {
+    background: var(--sb-status-inprocess);
+}
+
+.sb-result-empty {
+    color: var(--sb-status-rejected);
+    font-weight: 600;
+    font-size: clamp(0.8rem, 1.5vw, 1.05rem);
+}
+
+/* ---------- Footer ---------- */
+.sb-footer {
+    flex: 0 0 auto;
+    text-align: center;
+    background: var(--sb-green-dark);
+    color: var(--sb-white);
+    font-size: clamp(0.62rem, 1vw, 0.72rem);
+    padding: clamp(0.35rem, 1vh, 0.6rem);
+}
+
+/* ---------- Mobile: header stacks so logo + title don't squeeze ---------- */
+@media (max-width: 480px) {
+    .sb-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sb-header-text {
+        text-align: center;
+    }
+
+    .sb-logo {
+        width: clamp(160px, 65vw, 240px);
+        max-width: 75vw;
+        height: auto;
+    }
+}

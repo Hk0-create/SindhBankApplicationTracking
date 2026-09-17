@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sindh Bank</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="sb-header">
+        <a href="https://www.sindhbank.com.pk/" target="_blank" rel="noopener noreferrer" aria-label="Sindh Bank official website">
+            <img src="~/images/logo.png" alt="Sindh Bank" class="sb-logo" />
+        </a>
+        <div class="sb-header-text">
+            <h1>Application Tracking</h1>
+            <p class="sb-header-subtitle">درخواست ٹریکنگ</p>
+        </div>
+    </header>
+
+    <main class="sb-main">
+        @RenderBody()
+    </main>
+
+    <footer class="sb-footer">
+        <p>&copy; @DateTime.Now.Year Sindh Bank Limited</p>
+    </footer>
+</body>
+</html>
